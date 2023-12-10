@@ -1,0 +1,27 @@
+<h3>Capture Photo and Annotate</h3>
+
+<!-- <button id="takePhotoButton" (click)="takePhoto()">Take Photo</button> -->
+<!-- <video id="camera" width="200" height="200"></video> -->
+<!-- <img id="capturedImage" alt="none">  -->
+
+
+<!-- <div class="mobile-camera-container">
+<button class="take-photo" (click)="takePhoto()">Take Photo</button>
+</div>
+
+<video id="camera" width="640" height="480" autoplay></video> -->
+
+   
+<div *ngIf="capturedImageUrl" class="image-container" (click)="showImageInLandscape()">
+  <img height="200" width="200" [src]="capturedImageUrl">
+</div>
+<!-- <img src="C:/Users/Gauri/FULL_STACK/Angular PWA/myapp/image-capture-annotate/src/assets/Screenshot.png" > -->
+
+<h1>{{capturedImageUrl}}</h1>
+<div class="mobile-camera-container">
+  <label for="photo" class="take-photo">Take Photoo</label>
+  <input type="file" id="photo" #photoSource hidden accept="image/*" capture="camera" (change)="takePhoto(photoSource)"/>
+</div>
+
+  <!-- <video id="camera" autoplay></video> -->
+  

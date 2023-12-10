@@ -33,3 +33,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ====================================
 steps for pwa:
 1. ng add @angular/pwa --project image-capture-annotate   (find project name in angular.json)
+2. npm install -g http-server
