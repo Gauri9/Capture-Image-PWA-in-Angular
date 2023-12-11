@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { MobileCameraComponent } from './mobile-camera/mobile-camera.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: MobileCameraComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
     MobileCameraComponent
   ],
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes), FormsModule
   ]
 })
 export class CapturePhotoModule { }

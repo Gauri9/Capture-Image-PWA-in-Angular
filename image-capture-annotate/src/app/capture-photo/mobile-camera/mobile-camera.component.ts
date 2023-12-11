@@ -11,10 +11,20 @@ import { finalize, map, tap } from 'rxjs/operators'
 })
 export class MobileCameraComponent implements OnInit{
   capturedImageUrl: string | undefined;
+  landscapeMode: boolean = false;
+  // deviceWidth: number = window.innerWidth;
+  // deviceHeight: number = window.innerHeight;
+
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // window.addEventListener('resize', () => {
+    //   this.deviceWidth = window.innerWidth;
+    //   this.deviceHeight = window.innerHeight;
+    // });
+
+  }
 
   
   takePhoto(photoSource: HTMLInputElement): void {
@@ -36,6 +46,17 @@ export class MobileCameraComponent implements OnInit{
       const handleEvent = (event: Event) => {
         this.capturedImageUrl = reader.result as string;
         console.log('Captured Image URL:', this.capturedImageUrl);
+
+        const img = new Image();
+          img.src = this.capturedImageUrl;
+
+          if (!img.complete) {
+              img.onload = () => {
+                const aspectRatio = img.naturalWidth / img.naturalHeight;
+                console.log('Aspect Ratio:', aspectRatio);
+              };
+            }
+
       }
       
       // Read the selected image file as a data URL
@@ -45,9 +66,10 @@ export class MobileCameraComponent implements OnInit{
     }
   }
 
-  showImageInLandscape() {
-    console.log('Image clicked. Open in landscape mode.');
+  toggleLandscapeMode() {
+    this.landscapeMode = !this.landscapeMode;
   }
+
 
 
 }
