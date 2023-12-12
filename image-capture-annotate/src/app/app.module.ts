@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 const routes: Routes = [
   {
     path: '',
-    // loadChildren: () => import("./capture-photo/capture-photo.module").then(m => m.CapturePhotoModule)
     children: [
       {
         path: '',

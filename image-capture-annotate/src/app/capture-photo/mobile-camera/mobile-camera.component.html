@@ -1,20 +1,26 @@
 
 <div class="landscape-container">
-  <img #imageElement
+  <img
+      #imageElement
       [src]="capturedImageUrl" 
        alt="none" 
        >
-  <canvas #canvasElement
+  <canvas
+      #canvasElement
         (touchstart)="startDrawing($event)"
         (touchmove)="touchMove($event)">
-</canvas>
+  </canvas>
 </div>
 
-<button (click)="toggleEdit()">
-  {{ isEditing ? 'Stop Editing' : 'Start Editing' }}
-</button>
-
 <div class="mobile-camera-container">
+  <button (click)="toggleEdit()">
+    {{ isEditing ? 'Stop Editing' : 'Start Editing' }}
+  </button>
+
   <input type="file" id="photo" #photoSource hidden accept="image/*" capture="camera" (change)="takePhoto(photoSource)" />
   <label for="photo" class="take-photo">Take Photo</label>
+
+  <label class="take-photo" (click)="downloadImage()"> Export Image</label>
+  <!-- <label class="take-photo" (click)="downloadCoordinates()"> Export Coodinates</label> -->
+
 </div>
