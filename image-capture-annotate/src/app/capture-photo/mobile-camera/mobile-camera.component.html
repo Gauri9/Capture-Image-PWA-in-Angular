@@ -1,59 +1,20 @@
-<!-- ======================landscape-mode=================================== -->
 
-<div *ngIf="capturedImageUrl" class="landscape-container">
-  <img [src]="capturedImageUrl" alt="none">
+<div class="landscape-container">
+  <img #imageElement
+      [src]="capturedImageUrl" 
+       alt="none" 
+       >
+  <canvas #canvasElement
+        (touchstart)="startDrawing($event)"
+        (touchmove)="touchMove($event)">
+</canvas>
 </div>
 
-<button *ngIf="capturedImageUrl" class="mobile-camera-container">
-  <label class="take-photo">draw</label>
+<button (click)="toggleEdit()">
+  {{ isEditing ? 'Stop Editing' : 'Start Editing' }}
 </button>
 
-<div *ngIf="!capturedImageUrl" class="mobile-camera-container">
-  <input type="file" id="photo" #photoSource hidden accept="image/*" capture="camera" (change)="takePhoto(photoSource)" />
-  <label for="photo" class="take-photo">Take Photoo</label>
-</div>
-
-<!-- =====================================main-page================================= -->
-<!-- <ng-container >
-  <h3>image capture and annotate</h3>
-  <div *ngIf="capturedImageUrl" class="image-gallery-container" >
-      <div class="image-container">
-          <img *ngIf="!landscapeMode"  
-               [src]="capturedImageUrl" 
-               alt="none" 
-               
-               (click)="toggleLandscapeMode()">
-
-               <img *ngIf="landscapeMode" 
-               [src]="capturedImageUrl" 
-               alt="none" 
-               class="landscape"
-               (click)="toggleLandscapeMode()">  
-      </div>
-  </div>
-
-  <div class="mobile-camera-container">
-      <input type="file" id="photo" #photoSource hidden accept="image/*" capture="camera" (change)="takePhoto(photoSource)" />
-      <label for="photo" class="take-photo">Take Photo</label>
-  </div>
-
-</ng-container> -->
-
-<!-- ============================================================================================================= -->
-
-
-<!-- <video id="camera" autoplay></video> -->
-  
-   
-<!-- <div *ngIf="capturedImageUrl && !landscapeMode" class="image-container" (click)="toggleLandscapeMode()">
-  <img height="300px" width="300px" [src]="capturedImageUrl" alt="Captured Image" >
-</div>
-
-<div *ngIf="capturedImageUrl && landscapeMode" class="landscape"  (click)="toggleLandscapeMode()">
-  <img height="300px" width="400px"  [src]="capturedImageUrl" alt="Captured Image" >
-</div> 
 <div class="mobile-camera-container">
   <input type="file" id="photo" #photoSource hidden accept="image/*" capture="camera" (change)="takePhoto(photoSource)" />
   <label for="photo" class="take-photo">Take Photo</label>
-</div> -->
-<!-- <img src="C:/Users/Gauri/FULL_STACK/Angular PWA/myapp/image-capture-annotate/src/assets/Screenshot.png" > -->
+</div>

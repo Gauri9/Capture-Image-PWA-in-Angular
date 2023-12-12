@@ -4,20 +4,25 @@
   width: 100vh;
   height: 100vh;
   // overflow: hidden; // prevents scrolling but cuts the image
-  transform: rotate(90deg);
+  // transform: rotate(90deg);
   display: flex;
   align-items: center;
   justify-content: center;
-  // top: 0;
-  // left: 0;
-  // bottom: 0;
-  // right: 0;
 }
-.landscape-container img{
-  // transform: rotate(90deg);
+.landscape-container img {
+  transform: rotate(90deg);
   width: 100%;
   height: 100%;
   object-fit: contain; //for aspect ratio
+  z-index: 1;
+  // background-color: #ff9800;
+}
+.landscape-container canvas{
+  transform: rotate(90deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 
 // ===================================main-page=======================//
