@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MobileCameraComponent } from './mobile-camera.component';
@@ -8,7 +9,8 @@ describe('MobileCameraComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MobileCameraComponent]
+      declarations: [MobileCameraComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     });
     fixture = TestBed.createComponent(MobileCameraComponent);
     component = fixture.componentInstance;

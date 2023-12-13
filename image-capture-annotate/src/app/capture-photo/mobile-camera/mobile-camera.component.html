@@ -1,26 +1,54 @@
-
-<div class="landscape-container">
+<!-- <div #landscapeContainer class="landscape-container">
   <img
       #imageElement
       [src]="capturedImageUrl" 
-       alt="none" 
+       alt="none"
+       (load)="setAspectRatio()" 
        >
   <canvas
       #canvasElement
         (touchstart)="startDrawing($event)"
-        (touchmove)="touchMove($event)">
+        (touchmove)="touchMove($event)"
+        (touchend)="touchEnd($event)">
   </canvas>
-</div>
+</div> -->
 
-<div class="mobile-camera-container">
-  <button (click)="toggleEdit()">
-    {{ isEditing ? 'Stop Editing' : 'Start Editing' }}
-  </button>
+<div class="mobile-container">
 
-  <input type="file" id="photo" #photoSource hidden accept="image/*" capture="camera" (change)="takePhoto(photoSource)" />
-  <label for="photo" class="take-photo">Take Photo</label>
+  <div class="landscape-container">
+    <img
+        #imageElement
+        [src]="capturedImageUrl" 
+         alt="none"
+         >
+    <canvas
+        #canvasElement
+          (touchstart)="startDrawing($event)"
+          (touchmove)="touchMove($event)"
+          (touchend)="touchEnd($event)">
+    </canvas>
+  </div>
+  
+  
+  <div class="header">
+    <button class="action-button" (click)="toggleEdit()">
+      {{ isEditing ? 'Stop Editing' : 'Start Editing' }}
+    </button>
+    <mat-form-field>
+      <mat-label>Select a Shape</mat-label>
+      <mat-select [(ngModel)]="selectedShape">
+        <mat-option *ngFor="let shape of shapes" [value]="shape">{{ shape }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-  <label class="take-photo" (click)="downloadImage()"> Export Image</label>
-  <!-- <label class="take-photo" (click)="downloadCoordinates()"> Export Coodinates</label> -->
+  <div class="actions">
+    <label class="action-button" (click)="downloadImage()">Export Image</label>
+    <label class="action-button" (click)="downloadCoordinates()">Export Coordinates</label>
+  </div>
 
+  <div class="mobile-camera-container">
+    <input type="file" id="photo" #photoSource hidden accept="image/*" capture="camera" (change)="takePhoto(photoSource)" />
+    <label for="photo" class="take-photo">Take Photo</label>
+  </div>
 </div>

@@ -1,101 +1,71 @@
-// ====================landscape-mode===========================//
 .landscape-container{
   position: relative; //to prevent scrolling position:fixed, but it is cutting the image
-  width: 100vh;
-  height: 100vh;
+  // width: 100%;
+  // height: 100%;
   // overflow: hidden; // prevents scrolling but cuts the image
   // transform: rotate(90deg);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.landscape-container img {
-  transform: rotate(90deg);
+img {
+  // transform: rotate(90deg);
   width: 100%;
   height: 100%;
   object-fit: contain; //for aspect ratio
   z-index: 1;
   // background-color: #ff9800;
 }
-.landscape-container canvas{
-  transform: rotate(90deg);
+ canvas{
+  // transform: rotate(90deg);
   position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
   top: 0;
   left: 0;
   z-index: 2;
 }
-
-// ===================================main-page=======================//
-.mobile-camera-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 0);
-  width: 100%;
-  background-color: #9e9e9e42;
-  z-index: 10;
-  // height: 80px;
+.mobile-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-.mobile-camera-container label {
-  color: white;
-  padding: 15px 10px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.action-button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
   border-radius: 8px;
-  margin: 1rem;
   cursor: pointer;
 }
 
-.mobile-camera-container label.take-photo {
-  background-color: #ff9800;
+.mobile-camera-container {
+  text-align: center;
 }
 
-// .image-gallery-container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   row-gap: 5px;
-//   column-gap: 5px;
-//   // max-height: calc(100vh - 210px);
-//   overflow: auto;
-//   margin-top: 5px;
-// }
-
-.image-gallery-container .image-container {
-  position: relative;
-  // width: calc(50% - 5px);
-  // width: 100%;
-  // max-width: 100%;
-  // overflow: hidden;
-}
-
-// .image-gallery-container .image-container img {
-//   object-fit: cover;
-//   width: 100%;
-//   border-radius: 8px;
-//   cursor: pointer;
-// }
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.take-photo {
+  padding: 10px;
+  background-color: #2196f3;
+  color: #fff;
   border-radius: 8px;
-  // object-fit: contain;
+  cursor: pointer;
 }
-
-
-.landscape{
-  transform: rotate(90deg);
-  // width: 100%;
-  // height: auto;
-  margin-top: '200px';
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-
 @media screen and (max-width:600px) {
   .image-gallery-container .image-container .image-selected-symbol::after {
     font-size: 11px !important;
