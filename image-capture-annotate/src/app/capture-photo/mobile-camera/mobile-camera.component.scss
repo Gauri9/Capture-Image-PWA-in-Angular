@@ -1,8 +1,5 @@
 .landscape-container{
   position: relative; //to prevent scrolling position:fixed, but it is cutting the image
-  // width: 100%;
-  // height: 100%;
-  // overflow: hidden; // prevents scrolling but cuts the image
   // transform: rotate(90deg);
   display: flex;
   align-items: center;
@@ -12,9 +9,8 @@ img {
   // transform: rotate(90deg);
   width: 100%;
   height: 100%;
-  object-fit: contain; //for aspect ratio
+  object-fit: contain; 
   z-index: 1;
-  // background-color: #ff9800;
 }
  canvas{
   // transform: rotate(90deg);
